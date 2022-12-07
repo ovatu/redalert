@@ -4,11 +4,11 @@ import (
 	"log"
 	"testing"
 
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/config"
-	"github.com/jonog/redalert/data"
-	"github.com/jonog/redalert/notifiers"
-	"github.com/jonog/redalert/storage"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/config"
+	"github.com/ovatu/redalert/data"
+	"github.com/ovatu/redalert/notifiers"
+	"github.com/ovatu/redalert/storage"
 )
 
 func TestRegisterNotifiers(t *testing.T) {
