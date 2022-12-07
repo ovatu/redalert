@@ -26,7 +26,7 @@ ingress:
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
-  #      - chart-example.local
+  #      - status.example.local
 
 config:
   #checks:
@@ -39,7 +39,7 @@ config:
   #    type: "constant"
   #    interval: 30
   #  config:
-  #    address: "https://ovatu.com/health"
+  #    address: "https://status.example.local/"
   #  assertions:
   #  - source: "metadata"
   #    identifier: "status_code"
