@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"strings"
 )
 
 func init() {
@@ -37,6 +38,11 @@ func evaluateText(operator, current, target string) (Outcome, error) {
 			return Outcome{Assertion: true}, nil
 		}
 		return Outcome{Assertion: false, Message: fmt.Sprintf("(%s) is not equal to %s", current, target)}, nil
+	case "contains":
+		if strings.Contains(current, target) {
+			return Outcome{Assertion: true}, nil
+		}
+		return Outcome{Assertion: false, Message: fmt.Sprintf("(%s) does not contain %s", current, target)}, nil
 	default:
 		return Outcome{}, UnknownTextComparisonErr
 	}
