@@ -74,12 +74,13 @@ func (a ChecksArr) Len() int           { return len(a) }
 func (a ChecksArr) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ChecksArr) Less(i, j int) bool { return a[i].ConfigRank < a[j].ConfigRank }
 
-func (s *Service) RegisterNotifier(notifier notifiers.Notifier) error {
-	_, exists := s.notifiers[notifier.Name()]
+func (s *Service) RegisterNotifier(name string, notifier notifiers.Notifier) error {
+	_, exists := s.notifiers[name]
+
 	if exists {
 		return errors.New("redalert: notifier already existing on service. name: " + notifier.Name())
 	}
-	s.notifiers[notifier.Name()] = notifier
+	s.notifiers[name] = notifier
 	return nil
 }
 

@@ -83,7 +83,7 @@ func runServer(configStore config.Store, cfg serverConfig) {
 		log.Fatal(err)
 	}
 
-	err = service.RegisterNotifier(stdErrNotifier)
+	err = service.RegisterNotifier( "stderr", stdErrNotifier)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -102,7 +102,7 @@ func runServer(configStore config.Store, cfg serverConfig) {
 			log.Fatal(err)
 		}
 
-		err = service.RegisterNotifier(notifier)
+		err = service.RegisterNotifier(notificationConfig.Name, notifier)
 		if err != nil {
 			log.Fatal(err)
 		}

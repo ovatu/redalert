@@ -21,11 +21,11 @@ func TestRegisterNotifiers(t *testing.T) {
 	if exists {
 		t.Fail()
 	}
-	err := service.RegisterNotifier(&fakeNotifier{"fake"})
+	err := service.RegisterNotifier("fake", &fakeNotifier{"fake"})
 	if err != nil {
 		t.Fail()
 	}
-	err = service.RegisterNotifier(&fakeNotifier{"fake2"})
+	err = service.RegisterNotifier("fake2", &fakeNotifier{"fake2"})
 	if err != nil {
 		t.Fail()
 	}
@@ -41,12 +41,12 @@ func TestRegisterNotifiers(t *testing.T) {
 
 func TestRegisterNotifierDuplicate(t *testing.T) {
 	service := NewService()
-	err := service.RegisterNotifier(&fakeNotifier{"fake"})
+	err := service.RegisterNotifier("fake", &fakeNotifier{"fake"})
 	if err != nil {
 		t.Fail()
 	}
 
-	err = service.RegisterNotifier(&fakeNotifier{"fake"})
+	err = service.RegisterNotifier("fake", &fakeNotifier{"fake"})
 	if err == nil {
 		t.Fail()
 	}
@@ -80,7 +80,7 @@ func TestRegisterCheck(t *testing.T) {
 func TestRegisterCheckNotifications(t *testing.T) {
 	checks.Register("fake", NewFakeChecker)
 	service := NewService()
-	err := service.RegisterNotifier(&fakeNotifier{"my_notifier"})
+	err := service.RegisterNotifier("my_notifier", &fakeNotifier{"my_notifier"})
 	if err != nil {
 		t.Fail()
 	}
