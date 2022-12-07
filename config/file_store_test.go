@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/jonog/redalert/checks"
+	"github.com/ovatu/redalert/checks"
 )
 
 func testConfig() []byte {

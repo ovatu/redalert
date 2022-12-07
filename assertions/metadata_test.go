@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/jonog/redalert/data"
+	"github.com/ovatu/redalert/data"
 )
 
 func testMetadataConfig() Config {

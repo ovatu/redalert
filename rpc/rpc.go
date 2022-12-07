@@ -10,8 +10,8 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/jonog/redalert/core"
-	pb "github.com/jonog/redalert/servicepb"
+	"github.com/ovatu/redalert/core"
+	pb "github.com/ovatu/redalert/servicepb"
 	"google.golang.org/grpc"
 )
 

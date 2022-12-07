@@ -1,6 +1,6 @@
 ## Redalert
 
-[![Circle CI](https://circleci.com/gh/jonog/redalert.svg?style=svg)](https://circleci.com/gh/jonog/redalert)
+[![Circle CI](https://circleci.com/gh/ovatu/redalert.svg?style=svg)](https://circleci.com/gh/ovatu/redalert)
 
 [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=redalert&templateURL=https://s3-ap-southeast-2.amazonaws.com/redalert-cloudformation/redalert.yml)
 
@@ -109,12 +109,12 @@ Checks will happen at specified intervals or explicit trigger (i.e. trigger chec
 ### Getting started
 Run via Docker:
 ```
-docker run -d -P -v /path/to/config.json:/config.json jonog/redalert
+docker run -d -P -v /path/to/config.json:/config.json ovatu/redalert
 ```
 Quick bootstrap example:
 ```
-curl https://gist.githubusercontent.com/jonog/32c953aedf03edf71acaef53d89ce785/raw/e87f7e933165574e1d441781465223bfe6c3f1aa/sample_redalert_config.json > /tmp/sample_redalert_config.json && \
-    docker run -d -P -v /tmp/sample_redalert_config.json:/config.json --name test_redalert jonog/redalert && \
+curl https://gist.githubusercontent.com/ovatu/32c953aedf03edf71acaef53d89ce785/raw/e87f7e933165574e1d441781465223bfe6c3f1aa/sample_redalert_config.json > /tmp/sample_redalert_config.json && \
+    docker run -d -P -v /tmp/sample_redalert_config.json:/config.json --name test_redalert ovatu/redalert && \
     open "http://$(docker port test_redalert 8888)"
 ```
 
@@ -498,7 +498,7 @@ If there are errors sending email via gmail - enable `Access for less secure app
 
 #### CloudFormation Stacks
 
-See [redalert-cloudformation](https://github.com/jonog/redalert-cloudformation)
+See [redalert-cloudformation](https://github.com/ovatu/redalert-cloudformation)
 
 ##### EC2 & ELB
 [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=redalert&templateURL=https://s3-ap-southeast-2.amazonaws.com/redalert-cloudformation/redalert.yml)
@@ -520,4 +520,4 @@ Dependencies:
 Rocket emoji via https://github.com/twitter/twemoji
 
 ### Next Features
-See Github Issues [here](https://github.com/jonog/redalert/issues)
+See Github Issues [here](https://github.com/ovatu/redalert/issues)

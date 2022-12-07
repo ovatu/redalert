@@ -3,7 +3,7 @@ package assertions
 import (
 	"testing"
 
-	"github.com/jonog/redalert/data"
+	"github.com/ovatu/redalert/data"
 )
 
 var jsonSuccessTests = []struct {

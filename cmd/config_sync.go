@@ -3,7 +3,7 @@ package cmd
 import (
 	"log"
 
-	"github.com/jonog/redalert/config"
+	"github.com/ovatu/redalert/config"
 	"github.com/spf13/cobra"
 )
 

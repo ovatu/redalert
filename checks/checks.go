@@ -5,9 +5,9 @@ import (
 	"errors"
 	"log"
 
-	"github.com/jonog/redalert/assertions"
-	"github.com/jonog/redalert/backoffs"
-	"github.com/jonog/redalert/data"
+	"github.com/ovatu/redalert/assertions"
+	"github.com/ovatu/redalert/backoffs"
+	"github.com/ovatu/redalert/data"
 )
 
 // The Checker implements a type of status check / mechanism of data collection

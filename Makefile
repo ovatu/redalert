@@ -43,10 +43,10 @@ build-docker-image-local: embed-static
 		-v "$(shell pwd):/src" \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		centurylink/golang-builder \
-		jonog/redalert
+		ovatu/redalert
 
 build-docker-image-remote: build-docker-image-local
-	docker tag jonog/redalert jonog/redalert:v${VERSION}
-	docker push jonog/redalert
+	docker tag ovatu/redalert ovatu/redalert:v${VERSION}
+	docker push ovatu/redalert
 
 .PHONY: embed-static build-ui build-proto clean test-deps test build-docker-image build-docker-image-remote

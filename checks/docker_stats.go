@@ -12,7 +12,7 @@ import (
 
 	"github.com/docker/engine-api/client"
 	"github.com/docker/engine-api/types"
-	"github.com/jonog/redalert/data"
+	"github.com/ovatu/redalert/data"
 )
 
 func init() {

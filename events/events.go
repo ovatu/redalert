@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jonog/redalert/data"
-	"github.com/jonog/redalert/utils"
+	"github.com/ovatu/redalert/data"
+	"github.com/ovatu/redalert/utils"
 )
 
 const (

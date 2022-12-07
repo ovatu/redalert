@@ -4,7 +4,7 @@ machine:
   environment:
     DOCKER_API_VERSION: "1.20"
     POSTGRES_IMAGE: "postgres:9.5"
-    IMPORT_PATH: "/home/ubuntu/.go_workspace/src/github.com/jonog"
+    IMPORT_PATH: "/home/ubuntu/.go_workspace/src/github.com/ovatu"
     APP_PATH: "$IMPORT_PATH/redalert"
     GODIST: "go1.7.3.linux-amd64.tar.gz"
   post:

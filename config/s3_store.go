@@ -10,8 +10,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/notifiers"
 )
 
 type S3Store struct {

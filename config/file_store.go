@@ -6,8 +6,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/notifiers"
 )
 
 type FileStore struct {

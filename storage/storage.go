@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/jonog/redalert/events"
+import "github.com/ovatu/redalert/events"
 
 type EventStorage interface {
 	Store(*events.Event) error

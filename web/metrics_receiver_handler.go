@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/jonog/redalert/checks"
+	"github.com/ovatu/redalert/checks"
 )
 
 type Metric struct {

@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jonog/redalert/assertions"
-	"github.com/jonog/redalert/events"
-	"github.com/jonog/redalert/notifiers"
-	"github.com/jonog/redalert/servicepb"
-	"github.com/jonog/redalert/utils"
+	"github.com/ovatu/redalert/assertions"
+	"github.com/ovatu/redalert/events"
+	"github.com/ovatu/redalert/notifiers"
+	"github.com/ovatu/redalert/servicepb"
+	"github.com/ovatu/redalert/utils"
 )
 
 func (c *Check) Start() {

@@ -3,7 +3,7 @@ package notifiers
 import (
 	"errors"
 
-	"github.com/jonog/redalert/events"
+	"github.com/ovatu/redalert/events"
 )
 
 type Notifier interface {

@@ -1,6 +1,6 @@
 package stats
 
-import "github.com/jonog/redalert/utils"
+import "github.com/ovatu/redalert/utils"
 
 type CheckStats struct {
 	LastFailedAt        *occurrence

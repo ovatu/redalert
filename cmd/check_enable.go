@@ -4,7 +4,7 @@ import (
 	"log"
 	"strconv"
 
-	pb "github.com/jonog/redalert/servicepb"
+	pb "github.com/ovatu/redalert/servicepb"
 	"github.com/spf13/cobra"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

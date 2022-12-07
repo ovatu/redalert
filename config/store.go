@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/notifiers"
 )
 
 type Store interface {

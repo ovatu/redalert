@@ -9,10 +9,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/jonog/redalert/assertions"
-	"github.com/jonog/redalert/backoffs"
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/assertions"
+	"github.com/ovatu/redalert/backoffs"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/notifiers"
 
 	_ "github.com/lib/pq"
 	"gopkg.in/gorp.v1"

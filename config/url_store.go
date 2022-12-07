@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/notifiers"
 )
 
 type URLStore struct {

@@ -3,8 +3,8 @@ package web
 import (
 	"net/http"
 
-	"github.com/jonog/redalert/events"
-	"github.com/jonog/redalert/stats"
+	"github.com/ovatu/redalert/events"
+	"github.com/ovatu/redalert/stats"
 )
 
 type checkPublic struct {

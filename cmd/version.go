@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/jonog/redalert/utils"
+	"github.com/ovatu/redalert/utils"
 	"github.com/spf13/cobra"
 )
 

@@ -7,8 +7,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/jonog/redalert/data"
-	"github.com/jonog/redalert/utils"
+	"github.com/ovatu/redalert/data"
+	"github.com/ovatu/redalert/utils"
 
 	"golang.org/x/crypto/ssh"
 )

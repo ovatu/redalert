@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/fatih/color"
-	pb "github.com/jonog/redalert/servicepb"
+	pb "github.com/ovatu/redalert/servicepb"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 	"golang.org/x/net/context"

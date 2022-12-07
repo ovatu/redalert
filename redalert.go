@@ -1,8 +1,8 @@
-package main // import "github.com/jonog/redalert"
+package main // import "github.com/ovatu/redalert"
 
 import (
-	"github.com/jonog/redalert/cmd"
-	"github.com/jonog/redalert/utils"
+	"github.com/ovatu/redalert/cmd"
+	"github.com/ovatu/redalert/utils"
 )
 
 var (

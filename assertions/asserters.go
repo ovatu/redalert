@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/jonog/redalert/data"
+	"github.com/ovatu/redalert/data"
 )
 
 type Config struct {

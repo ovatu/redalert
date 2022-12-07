@@ -3,7 +3,7 @@ package storage
 import (
 	"container/list"
 
-	"github.com/jonog/redalert/events"
+	"github.com/ovatu/redalert/events"
 )
 
 type MemoryList struct {

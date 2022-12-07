@@ -8,7 +8,7 @@ import (
 
 	"github.com/GeertJohan/go.rice"
 	"github.com/gorilla/mux"
-	"github.com/jonog/redalert/core"
+	"github.com/ovatu/redalert/core"
 	"github.com/rs/cors"
 )
 
