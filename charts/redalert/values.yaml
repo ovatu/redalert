@@ -1,0 +1,61 @@
+image:
+  repository: ovatu/redalert
+  # Overrides the Grafana image tag whose default is the chart appVersion
+  tag: ""
+  sha: ""
+  pullPolicy: IfNotPresent
+
+  pullSecrets: []
+  #   - myRegistrKeySecretName
+
+ingress:
+  enabled: true
+
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+
+  labels: {}
+  path: /
+
+  pathType: Prefix
+
+  hosts:
+    - status.example.local
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+config:
+  #checks:
+  #- name: Backend
+  #  type: web-ping
+  #  send_alerts: 
+  #  - "stderr"
+  #  - "call"
+  #  backoff:
+  #    type: "constant"
+  #    interval: 30
+  #  config:
+  #    address: "https://ovatu.com/health"
+  #  assertions:
+  #  - source: "metadata"
+  #    identifier: "status_code"
+  #    comparison: "=="
+  #    target: "200"
+
+  #notifications:
+  #- name: call
+  #  type: twilio_call
+  #  config: 
+  #    account_sid: ""
+  #    auth_token: ""
+  #    notification_numbers: ""
+  #    twilio_number: ""
+
+  #preferences:
+  #  notifications:
+  #    fail_count_alert_threshold: 1
+  #    repeat_fail_alerts: false
