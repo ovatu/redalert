@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/jonog/redalert/config"
-	"github.com/jonog/redalert/core"
-	"github.com/jonog/redalert/notifiers"
-	"github.com/jonog/redalert/rpc"
-	"github.com/jonog/redalert/storage"
-	"github.com/jonog/redalert/web"
+	"github.com/ovatu/redalert/config"
+	"github.com/ovatu/redalert/core"
+	"github.com/ovatu/redalert/notifiers"
+	"github.com/ovatu/redalert/rpc"
+	"github.com/ovatu/redalert/storage"
+	"github.com/ovatu/redalert/web"
 	"github.com/spf13/cobra"
 )
 

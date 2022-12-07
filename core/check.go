@@ -7,14 +7,14 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/jonog/redalert/assertions"
-	"github.com/jonog/redalert/backoffs"
-	"github.com/jonog/redalert/checks"
-	"github.com/jonog/redalert/config"
-	"github.com/jonog/redalert/notifiers"
-	"github.com/jonog/redalert/servicepb"
-	"github.com/jonog/redalert/stats"
-	"github.com/jonog/redalert/storage"
+	"github.com/ovatu/redalert/assertions"
+	"github.com/ovatu/redalert/backoffs"
+	"github.com/ovatu/redalert/checks"
+	"github.com/ovatu/redalert/config"
+	"github.com/ovatu/redalert/notifiers"
+	"github.com/ovatu/redalert/servicepb"
+	"github.com/ovatu/redalert/stats"
+	"github.com/ovatu/redalert/storage"
 )
 
 type Check struct {
