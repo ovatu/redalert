@@ -7,7 +7,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/jonog/redalert/notifiers"
+	"github.com/ovatu/redalert/notifiers"
 )
 
 type Service struct {
