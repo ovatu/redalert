@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 if [[ -z "${CONFIG_JSON}" ]]; then
+    echo "--- Not loading environment ---"
 else
     echo "--- LOADING config.json from environment ---"
     echo "$CONFIG_JSON" > "config.json"
