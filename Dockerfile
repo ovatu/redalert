@@ -9,7 +9,10 @@ FROM golang:1.16-alpine
 WORKDIR /
 
 COPY --from=builder /build/redalert .
+COPY run /usr/local/bin/run
+
+RUN chmod +x /usr/local/bin/run
 
 EXPOSE 8888
 
-ENTRYPOINT ["./redalert", "server"]
+ENTRYPOINT ["run"]

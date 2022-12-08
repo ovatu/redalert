@@ -13,26 +13,10 @@ spec:
         app: {{ .Chart.Name }}
         release: {{ .Release.Name }}
     spec:
-      initContainers:
-      - name: setup-configs
-        image: busybox:latest
-        command: 
-        - sh
-        - "-c"
-        args: 
-        - "cp -a /tmp/config/. /etc/redalert/"
-        volumeMounts:
-         - name: config-map
-           mountPath: /tmp/config
-         - name: config-etc
-           mountPath: /etc/redalert
       containers:
         - name: {{ .Release.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
-          - '-f'
-          - '/etc/redalert/config.json'
           ports:
             - containerPort: 8888
               protocol: TCP
@@ -40,16 +24,7 @@ spec:
             - containerPort: 8889
               protocol: TCP
               name: rpc
-          volumeMounts:
-          - name: config-etc
-            mountPath: /etc/redalert
-      volumes:
-        - name: config-map
-          configMap:
-            name: {{ .Release.Name }}-config
-            defaultMode: 0777
-            items:
-              - key: config.json  # Name of the item we had used inside our ConfigMap (under data:)
-                path: config.json # Name of the file to be placed inside /etc
-        - emptyDir: {}
-          name: config-etc
+          env:
+            - name: CONFIG_JSON
+              value: |
+                {{ .Values.config | toJson }}
