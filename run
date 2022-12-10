@@ -7,4 +7,4 @@ else
     echo "$CONFIG_JSON" > "config.json"
 fi
 
-./redalert server
+./redalert server $@

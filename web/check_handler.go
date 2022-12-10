@@ -17,6 +17,11 @@ func checkDisableHandler(c *appCtx, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if c.config.readOnly {
+		http.Error(w, "Read only", http.StatusPreconditionFailed)
+		return
+	}
+
 	if !check.Data.Enabled {
 		http.Error(w, "Check is already disabled", http.StatusPreconditionFailed)
 		return
@@ -38,6 +43,11 @@ func checkEnableHandler(c *appCtx, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if c.config.readOnly {
+		http.Error(w, "Read only", http.StatusPreconditionFailed)
+		return
+	}
+
 	if check.Data.Enabled {
 		http.Error(w, "Check is already disabled", http.StatusPreconditionFailed)
 		return
@@ -56,6 +66,11 @@ func checkTriggerHandler(c *appCtx, w http.ResponseWriter, r *http.Request) {
 	check, err := c.service.CheckByID(id)
 	if err != nil {
 		http.Error(w, "Not Found", http.StatusNotFound)
+		return
+	}
+
+	if c.config.readOnly {
+		http.Error(w, "Read only", http.StatusPreconditionFailed)
 		return
 	}
 

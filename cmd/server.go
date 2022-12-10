@@ -16,6 +16,7 @@ import (
 type serverConfig struct {
 	webPort      int
 	disableBrand bool
+	readOnly	 bool
 	rpcPort      int
 }
 
@@ -58,6 +59,7 @@ var serverCmd = &cobra.Command{
 		runServer(configStore, serverConfig{
 			webPort:      webPort,
 			disableBrand: disableBrand,
+			readOnly: 	  readOnly,
 			rpcPort:      rpcPort,
 		})
 	},
@@ -137,8 +139,8 @@ func runServer(configStore config.Store, cfg serverConfig) {
 
 	service.Start()
 
-	go web.Run(service, cfg.webPort, cfg.disableBrand)
-	go rpc.Run(service, cfg.rpcPort)
+	go web.Run(service, cfg.webPort, cfg.disableBrand, cfg.readOnly)
+	go rpc.Run(service, cfg.rpcPort, cfg.readOnly)
 	fmt.Println(`
 ____ ____ ___  ____ _    ____ ____ ___
 |--< |=== |__> |--| |___ |=== |--<  |
@@ -146,6 +148,7 @@ ____ ____ ___  ____ _    ____ ____ ___
 `)
 	fmt.Println("Web Running on port ", cfg.webPort)
 	fmt.Println("RPC Running on port ", cfg.rpcPort)
+	fmt.Println("Read only ", cfg.readOnly)
 
 	service.KeepRunning()
 }

@@ -12,12 +12,13 @@ import (
 	"github.com/rs/cors"
 )
 
-func Run(service *core.Service, port int, disableBrand bool) {
+func Run(service *core.Service, port int, disableBrand bool, readOnly bool) {
 
 	context := &appCtx{
 		service: service,
 		config: Config{
 			disableBrand: disableBrand,
+			readOnly: readOnly,
 		},
 	}
 
@@ -52,6 +53,7 @@ type appCtx struct {
 
 type Config struct {
 	disableBrand bool
+	readOnly bool
 }
 
 type appHandler struct {

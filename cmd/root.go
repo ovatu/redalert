@@ -46,6 +46,7 @@ var cfgS3 string
 var webPort int
 var rpcPort int
 var disableBrand bool
+var readOnly bool
 
 func init() {
 	RootCmd.PersistentFlags().StringVarP(&cfgFile, "config-file", "f", "config.json", "config file")
@@ -54,4 +55,5 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&cfgS3, "config-s3", "s", "", "config S3")
 	RootCmd.PersistentFlags().IntVarP(&webPort, "port", "p", 8888, "port to run web server")
 	RootCmd.PersistentFlags().IntVarP(&rpcPort, "rpc-port", "r", 8889, "port to run RPC server")
+	RootCmd.PersistentFlags().BoolVarP(&readOnly, "read-only", "o", false, "server is read-only")
 }

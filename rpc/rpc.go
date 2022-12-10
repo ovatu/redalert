@@ -17,6 +17,7 @@ import (
 
 type server struct {
 	service *core.Service
+	readOnly bool
 }
 
 func (s *server) CheckList(ctx context.Context, in *pb.CheckListRequest) (*pb.CheckListResponse, error) {
@@ -35,6 +36,10 @@ func (s *server) CheckEnable(ctx context.Context, in *pb.CheckEnableRequest) (*p
 		return nil, err
 	}
 
+	if s.readOnly {
+		return nil, errors.New("Read only")
+	}
+
 	if check.Data.Enabled {
 		return nil, errors.New("Check is already enabled")
 	}
@@ -51,6 +56,10 @@ func (s *server) CheckDisable(ctx context.Context, in *pb.CheckDisableRequest) (
 		return nil, err
 	}
 
+	if s.readOnly {
+		return nil, errors.New("Read only")
+	}
+
 	if !check.Data.Enabled {
 		return nil, errors.New("Check is already disabled")
 	}
@@ -60,7 +69,7 @@ func (s *server) CheckDisable(ctx context.Context, in *pb.CheckDisableRequest) (
 	return &pb.CheckDisableResponse{}, nil
 }
 
-func Run(service *core.Service, port int) {
+func Run(service *core.Service, port int, readOnly bool) {
 
 	if os.Getenv("GRPC_TRACING_ENABLED") != "" {
 		// Access trace via localhost:8080/debug/requests
@@ -73,6 +82,6 @@ func Run(service *core.Service, port int) {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterRedalertServiceServer(s, &server{service})
+	pb.RegisterRedalertServiceServer(s, &server{service, readOnly})
 	s.Serve(lis)
 }
