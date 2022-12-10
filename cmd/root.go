@@ -43,6 +43,7 @@ var cfgFile string
 var cfgDb string
 var cfgURL string
 var cfgS3 string
+var cfgEnv string
 var webPort int
 var rpcPort int
 var disableBrand bool
@@ -53,6 +54,7 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&cfgDb, "config-db", "d", "", "config database url")
 	RootCmd.PersistentFlags().StringVarP(&cfgURL, "config-url", "u", "", "config url")
 	RootCmd.PersistentFlags().StringVarP(&cfgS3, "config-s3", "s", "", "config S3")
+	RootCmd.PersistentFlags().StringVarP(&cfgEnv, "config-env", "e", "", "config environment var")
 	RootCmd.PersistentFlags().IntVarP(&webPort, "port", "p", 8888, "port to run web server")
 	RootCmd.PersistentFlags().IntVarP(&rpcPort, "rpc-port", "r", 8889, "port to run RPC server")
 	RootCmd.PersistentFlags().BoolVarP(&readOnly, "read-only", "o", false, "server is read-only")

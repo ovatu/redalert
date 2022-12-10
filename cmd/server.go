@@ -48,6 +48,13 @@ var serverCmd = &cobra.Command{
 			if err != nil {
 				log.Fatal("S3 config error via :", configS3, " Error: ", err)
 			}
+		} else if cmd.Flag("config-env").Changed {
+			log.Println("Config via environment variable")
+			configEnv := cmd.Flag("config-env").Value.String()
+			configStore, err = config.NewEnvStore(configEnv)
+			if err != nil {
+				log.Fatal("Env config error via :", configEnv, " Error: ", err)
+			}
 		} else {
 			log.Println("Config via file")
 			configFile := cmd.Flag("config-file").Value.String()
