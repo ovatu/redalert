@@ -28,6 +28,9 @@ ingress:
   #    hosts:
   #      - status.example.local
 
+server:
+  readOnly: false
+
 config:
   #checks:
   #- name: Backend
