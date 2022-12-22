@@ -109,6 +109,11 @@ body {
   padding-right: 5px;
 }
 
+.server .metric-name .current-value {
+  font-size: 0.25em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 .server .stats-success-rate {
   font-size: 0.45em;
@@ -116,7 +121,7 @@ body {
   padding-left: 15px;
   padding-right: 5px;
 }
-.server .metric-name{
+.server .metric-name {
   font-size: 0.45em;
   text-align: right;
   margin-top: 5px;

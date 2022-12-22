@@ -44,15 +44,18 @@ function processCheck(check) {
   const lastEvent = _.first(check.events);
   if (lastEvent) {
     const metricNames = _.keys(lastEvent.data.metrics);
-    check.selectedMetric = metricNames[0];
-    check.selectedMetricValue = round(lastEvent.data.metrics[check.selectedMetric], 2);
+
+    check.metrics = {}
+    metricNames.forEach(function (key) {
+      check.metrics[key] = round(lastEvent.data.metrics[key], 2);
+    })
+      
     check.lastEvent = lastEvent;
     if (check.status === "FAILING") {
       check.errors = lastEvent.messages.join(', ');
     }
   } else {
-    check.selectedMetric = null;
-    check.selectedMetricValue = null;
+    check.metrics = null;
   }
 
   var totalChecks = check.stats.failure_total + check.stats.successful_total;
@@ -62,7 +65,7 @@ function processCheck(check) {
 }
 
 Vue.component('chartist', {
-  props: ['metric', 'data'],
+  props: ['metrics', 'data'],
   template: '<div class="check-chart"></div>',
   mounted: function() {
     this.draw();
@@ -70,15 +73,17 @@ Vue.component('chartist', {
   methods: {
     draw: function() {
       var vm = this;
-      if (!vm.metric) {
+      if (!vm.metrics) {
+        console.log('chart: metric not set')
         return
       }
       if (!vm.data || vm.data.length === 0) {
+        console.log('chart: empty')
         return
       }
-      const chart = new Chartist.Line(vm.$el, { series: generateSeries(vm.data, vm.metric) },
+      const chart = new Chartist.Line(vm.$el, { series: vm.metrics.map(function(e) { return generateSeries(vm.data, e) }) },
         {
-          series: generateSeriesOpts(vm.metric),
+          series: Object.fromEntries(vm.metrics.map(function(e) { return [e, generateSeriesOpts(e)] })),
           axisX: {
               type: Chartist.FixedScaleAxis,
               divisor: 6,
@@ -108,8 +113,7 @@ Vue.component('chartist', {
 })
 
 function generateSeries(events, metricName) {
-  var series = [];
-  series.push({
+  return {
     name: metricName,
     data: events.map(function(e) {
       return {
@@ -117,19 +121,16 @@ function generateSeries(events, metricName) {
         y: e.data.metrics[metricName]
       };
     })
-  });
-  return series;
+  };
 }
 
 function generateSeriesOpts(metricName) {
-  var seriesOpts = {}
-  seriesOpts[metricName] = {
+  return {
     lineSmooth: Chartist.Interpolation.step({
       postpone: true,
       fillHoles: false
     })
   };
-  return seriesOpts;
 }
 
 function round(value, decimals) {

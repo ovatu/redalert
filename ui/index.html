@@ -32,15 +32,14 @@
           <img v-if="check.status === 'FAILING'" class="emojione status-icon" alt="❎" src="//cdn.jsdelivr.net/emojione/assets/png/274e.png?v=2.2.4">
           <span class="check-name">{{ check.name }}</span> <span class="check-type">[{{ check.type }}]</span>
           <span class="success-rate" v-if="_.isNumber(check.successRate)">{{ check.successRate }}%&#8593;</span>
-
         </div>
 
         <div class="metric-name">
-            <span class="transition">{{ check.status }} <span v-if="check.stateTransitionedAt">for {{ check.stateTransitionedAt }}</span></span></br>
-           <span v-if="check.selectedMetric">{{ check.selectedMetric }} ({{ check.selectedMetricValue }})</span>
+          <span class="current-value" v-for="(v, k) in check.metrics">{{ k }}: {{ v }}</span>
+          <span class="transition">{{ check.status }} <span v-if="check.stateTransitionedAt">for {{ check.stateTransitionedAt }}</span></span></br>
         </div>
 
-        <chartist :data="check.events" :metric="check.selectedMetric" class="chartist"></chartist>
+        <chartist :data="check.events" :metrics="Object.keys(check.metrics ?? {})" class="chartist"></chartist>
 
         <div class="check-error" v-if="check.errors">errors: {{ check.errors }} </div>
 
