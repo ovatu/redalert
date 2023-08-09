@@ -9,6 +9,7 @@ import (
 type Notifier interface {
 	Notify(Message) error
 	Name() string
+	ShouldNotify(failCount int) bool
 }
 
 type Message struct {

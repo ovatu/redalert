@@ -52,6 +52,10 @@ func (a Twilio) Name() string {
 	return "Twilio"
 }
 
+func (a Twilio) ShouldNotify(failCount int) bool {
+	return true
+}
+
 func (a Twilio) Notify(msg Message) (err error) {
 
 	smsText := msg.DefaultMessage

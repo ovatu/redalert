@@ -179,6 +179,12 @@ func (c *Check) processNotifications(event *events.Event) {
 		for _, notifier := range c.Notifiers {
 			go func(n notifiers.Notifier) {
 				c.Log.Println(utils.White, "Sending "+event.DisplayTags()+" via "+n.Name(), utils.Reset)
+
+				if !n.ShouldNotify(c.Stats.FailureSequence.Get()) {
+					c.Log.Println(utils.Red, "WARNING: Decided not to notify ["+n.Name()+"]: ")
+					return
+				}
+
 				err := n.Notify(notifiers.Message{
 					DefaultMessage: c.message(event),
 					Event:          event,

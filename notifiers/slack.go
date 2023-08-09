@@ -42,6 +42,10 @@ func (a SlackWebhook) Name() string {
 	return a.name
 }
 
+func (a SlackWebhook) ShouldNotify(failCount int) bool {
+	return true
+}
+
 func (a SlackWebhook) Notify(msg Message) error {
 
 	var payloadChannel string

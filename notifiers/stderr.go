@@ -25,6 +25,10 @@ func (a StandardError) Name() string {
 	return a.name
 }
 
+func (a StandardError) ShouldNotify(failCount int) bool {
+	return true
+}
+
 func (a StandardError) Notify(msg Message) error {
 	a.log.Println(msg.DefaultMessage)
 	return nil

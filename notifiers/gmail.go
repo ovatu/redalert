@@ -47,6 +47,10 @@ func (a Gmail) Name() string {
 	return a.name
 }
 
+func (a Gmail) ShouldNotify(failCount int) bool {
+	return true
+}
+
 func (a Gmail) Notify(msg Message) error {
 
 	body := "To: " + strings.Join(a.notificationAddresses, ",") +

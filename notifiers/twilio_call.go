@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"strconv"
 )
 
 func init() {
@@ -16,6 +17,7 @@ type TwilioCall struct {
 	authToken    string
 	phoneNumbers []string
 	twilioNumber string
+	failCountAlertThreshold int
 }
 
 var NewTwilioCallNotifier = func(config Config) (Notifier, error) {
@@ -35,20 +37,26 @@ var NewTwilioCallNotifier = func(config Config) (Notifier, error) {
 		return nil, errors.New("twilio: invalid twilio_number")
 	}
 
-	if config.Config["notification_numbers"] == "" {
-		return nil, errors.New("twilio: invalid notification_numbers")
+	fail_count_threshold := 1
+	if i, err := strconv.Atoi(config.Config["fail_count_threshold"]); err == nil {
+		fail_count_threshold = i
 	}
-
+	
 	return Notifier(TwilioCall{
 		accountSid:   config.Config["account_sid"],
 		authToken:    config.Config["auth_token"],
 		phoneNumbers: strings.Split(config.Config["notification_numbers"], ","),
 		twilioNumber: config.Config["twilio_number"],
+		failCountAlertThreshold: fail_count_threshold,
 	}), nil
 }
 
 func (a TwilioCall) Name() string {
 	return "TwilioCall"
+}
+
+func (a TwilioCall) ShouldNotify(failCount int) bool {
+	return failCount >= a.failCountAlertThreshold
 }
 
 func (a TwilioCall) Notify(msg Message) (err error) {
